@@ -1,0 +1,10 @@
+.env
+
+__pycashe__/
+*.py[cod]
+
+venv/
+.venv/
+
+media/
+staticfiles/
