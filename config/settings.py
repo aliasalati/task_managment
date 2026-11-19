@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/6.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
-
+from datetime import timedelta
 from pathlib import Path
 import environ
 
@@ -43,8 +43,10 @@ INSTALLED_APPS = [
 
     "rest_framework",
     "rest_framework_simplejwt.token_blacklist",
+    "django_filters",
 
     "accounts",
+    "tasks"
 ]
 
 MIDDLEWARE = [
@@ -111,9 +113,14 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 REST_FRAMEWORK = {
-    "DEFAULR_AUTHENTICATION_CLASSES" : [
+    "DEFAULT_AUTHENTICATION_CLASSES" : [
         "rest_framework_simplejwt.authentication.JWTAuthentication"
     ]
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LEFTIME" : timedelta(days=7),
+    "REFRESH_TOKEN_LEFTIME" : timedelta(days=7)
 }
 
 
